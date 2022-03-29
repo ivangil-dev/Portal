@@ -106,7 +106,7 @@ const CloseButton = ({hide = false, onClose}) => {
         return null;
     }
     return (
-        <CloseIcon className='closeicon' alt='Close' onClick={onClose} />
+        <CloseIcon className='closeicon' alt='Cerrar' onClick={onClose} />
     );
 };
 
@@ -119,9 +119,9 @@ const NotificationText = ({message, site}) => {
         );
     }
     return (
-        <p> An unexpected error occured. Please try again or <a href={supportAddressMail} onClick={() => {
+        <p> Ocurrió un error inesperado. Por favor, inténtalo de nuevo o <a href={supportAddressMail} onClick={() => {
             supportAddressMail && window.open(supportAddressMail);
-        }}>contact support</a> if the error persists.</p>
+        }}>contacta con el soporte técnico</a> si el error persiste.</p>
     );
 };
 

@@ -555,7 +555,7 @@ function FreeProductCard({products, handleChooseSignup}) {
     }
 
     if (!freeProductDescription && !freeBenefits.length) {
-        freeProductDescription = 'Free preview';
+        freeProductDescription = 'Vista previa gratis';
     }
 
     return (
@@ -569,8 +569,8 @@ function FreeProductCard({products, handleChooseSignup}) {
                     {(!hasOnlyFree ?
                         <div className="gh-portal-product-card-pricecontainer">
                             <div className="gh-portal-product-price">
-                                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>{currencySymbol}</span>
                                 <span className="amount">0</span>
+                                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>{currencySymbol}</span>
                             </div>
                             {/* <div className="gh-portal-product-alternative-price"></div> */}
                         </div>
@@ -589,7 +589,7 @@ function FreeProductCard({products, handleChooseSignup}) {
                                 onClick={(e) => {
                                     handleChooseSignup(e, 'free');
                                 }}>
-                                {((selectedProduct === 'free' && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Choose')}
+                                {((selectedProduct === 'free' && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Elegir')}
                             </button>
                         </div>
                         : '')}
@@ -612,7 +612,7 @@ function ProductCard({product, products, selectedInterval, handleChooseSignup}) 
 
     let productDescription = product.description;
     if ((!product.benefits || !product.benefits.length) && !productDescription) {
-        productDescription = 'Full access';
+        productDescription = 'Acceso completo';
     }
 
     return (
@@ -640,7 +640,7 @@ function ProductCard({product, products, selectedInterval, handleChooseSignup}) 
                                 const selectedPrice = getSelectedPrice({products, selectedInterval, selectedProduct: product.id});
                                 handleChooseSignup(e, selectedPrice.id);
                             }}>
-                            {((selectedProduct === product.id && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Choose')}
+                            {((selectedProduct === product.id && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Elegir')}
                         </button>
                     </div>
                 </div>

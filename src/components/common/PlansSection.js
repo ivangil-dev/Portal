@@ -289,8 +289,8 @@ function PriceLabel({currencySymbol, price, interval}) {
     return (
         <div className='gh-portal-plan-pricelabel'>
             <div className='gh-portal-plan-pricecontainer'>
-                <span className={currencyClass}>{currencySymbol}</span>
                 <span className='gh-portal-plan-price'>{formatNumber(price)}</span>
+                <span className={currencyClass}>{currencySymbol}</span>
             </div>
         </div>
     );
@@ -299,15 +299,15 @@ function PriceLabel({currencySymbol, price, interval}) {
 function addDiscountToPlans(plans) {
     const filteredPlans = plans.filter(d => d.id !== 'free');
     const monthlyPlan = plans.find((d) => {
-        return d.name === 'Monthly' && d.interval === 'month';
+        return d.name === 'Mensual' && d.interval === 'month';
     });
     const yearlyPlan = plans.find((d) => {
-        return d.name === 'Yearly' && d.interval === 'year';
+        return d.name === 'Anual' && d.interval === 'year';
     });
 
     if (filteredPlans.length === 2 && monthlyPlan && yearlyPlan) {
         const discount = calculateDiscount(monthlyPlan.amount, yearlyPlan.amount);
-        yearlyPlan.description = discount > 0 ? `${discount}% discount` : '';
+        yearlyPlan.description = discount > 0 ? `${discount}% de descuento` : '';
         monthlyPlan.description = '';
     }
 }
@@ -365,7 +365,7 @@ function ChangePlanOptions({plans, selectedPlan, onPlanSelect, changePlan}) {
     return plans.map(({name, currency_symbol: currencySymbol, amount, description, interval, id}) => {
         const price = amount / 100;
         const isChecked = selectedPlan === id;
-        let displayName = interval === 'month' ? 'Monthly' : 'Yearly';
+        let displayName = interval === 'month' ? 'Mensual' : 'Anual';
 
         let planClass = (isChecked ? 'gh-portal-plan-section checked' : 'gh-portal-plan-section');
         planClass += ' gh-portal-change-plan-section';
@@ -377,7 +377,7 @@ function ChangePlanOptions({plans, selectedPlan, onPlanSelect, changePlan}) {
                 <h4 className={planNameClass}>{displayName}</h4>
                 <PriceLabel currencySymbol={currencySymbol} price={price} interval={interval} />
                 <div className={featureClass} style={{border: 'none', paddingTop: '3px'}}>
-                    {(changePlan && selectedPlan === id ? <span className='gh-portal-plan-current'>Current plan</span> : '')}
+                    {(changePlan && selectedPlan === id ? <span className='gh-portal-plan-current'>Plan actual</span> : '')}
                 </div>
             </div>
         );

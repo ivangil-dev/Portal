@@ -15,7 +15,7 @@ function AccountHeader() {
             <BackButton brandColor={brandColor} hidden={!lastPage} onClick={(e) => {
                 onAction('back');
             }} />
-            <h3 className='gh-portal-main-title'>Email preferences</h3>
+            <h3 className='gh-portal-main-title'>Preferencias de correo electrónico</h3>
         </header>
     );
 }
@@ -81,7 +81,7 @@ export default function AccountEmailPage() {
                         isDestructive={true}
                         style={{width: '100%'}}
                     />
-                    <p style={{textAlign: 'center', marginTop: '12px', marginBottom: '0', color: 'var(--grey6)'}}>Unsubscribing from emails will not cancel your paid subscription to The Chinese Cinema</p>
+                    <p style={{textAlign: 'center', marginTop: '12px', marginBottom: '0', color: 'var(--grey6)'}}>Cancelar la suscripción a los correos electrónicos no cancelará tu suscripción de pago.</p>
                 </div>
             </footer>
         </div>

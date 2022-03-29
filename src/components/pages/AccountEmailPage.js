@@ -54,7 +54,7 @@ export default function AccountEmailPage() {
         <div className='gh-portal-content with-footer'>
             <CloseButton />
             <AccountHeader />
-            <div className='gh-portal-section'>
+            <div className='gh-portal-section'>Actualizar
                 <div className='gh-portal-list'>
                     <NewsletterPrefs />
                 </div>
@@ -67,7 +67,7 @@ export default function AccountEmailPage() {
                             onClick={(e) => {}}
                             disabled={false}
                             brandColor={brandColor}
-                            label='Update'
+                            label=''
                             style={{width: '100%'}}
                         />
                     </div>
@@ -77,7 +77,7 @@ export default function AccountEmailPage() {
                         disabled={false}
                         brandColor={brandColor}
                         isPrimary={false}
-                        label='Unsubscribe from all'
+                        label='Darse de baja de todos'
                         isDestructive={true}
                         style={{width: '100%'}}
                     />

@@ -212,7 +212,7 @@ const PaidAccountActions = () => {
         let label = '';
         if (price) {
             const {amount = 0, currency, interval} = price;
-            label = `${Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(amount / 100)}/${interval}`;
+            label = `${Intl.NumberFormat('es-ES', {currency, style: 'currency'}).format(amount / 100)}/${interval}`;
         }
         let offerLabelStr = getOfferLabel({price, offer, subscriptionStartDate: startDate});
         if (isComplimentary) {

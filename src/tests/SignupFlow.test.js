@@ -200,13 +200,13 @@ describe('Signup', () => {
             expect(chooseBtns).toHaveLength(2);
 
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
             fireEvent.click(chooseBtns[0]);
             expect(ghostApi.member.sendMagicLink).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 plan: 'free'
             });
@@ -234,13 +234,13 @@ describe('Signup', () => {
             expect(signinButton).toBeInTheDocument();
             expect(chooseBtns).toHaveLength(2);
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             fireEvent.click(chooseBtns[0]);
 
             expect(ghostApi.member.sendMagicLink).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: '',
                 plan: 'free'
             });
@@ -271,15 +271,15 @@ describe('Signup', () => {
             expect(submitButton).not.toBeInTheDocument();
             submitButton = within(popupIframeDocument).queryByRole('button', {name: 'Sign up'});
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
             fireEvent.click(submitButton);
 
             expect(ghostApi.member.sendMagicLink).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 plan: 'free'
             });
@@ -316,15 +316,15 @@ describe('Signup', () => {
             const benefitText = singleTierProduct.benefits[0].name;
 
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
             fireEvent.click(monthlyPlanContainer.parentNode);
             await within(popupIframeDocument).findByText(benefitText);
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
             fireEvent.click(chooseBtns[1]);
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 offerId: undefined,
                 plan: singleTierProduct.yearlyPrice.id
@@ -356,15 +356,15 @@ describe('Signup', () => {
             const benefitText = singleTierProduct.benefits[0].name;
 
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
             fireEvent.click(yearlyPlanContainer.parentNode);
             await within(popupIframeDocument).findByText(benefitText);
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
             fireEvent.click(chooseBtns[1]);
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 offerId: undefined,
                 plan: singleTierProduct.yearlyPrice.id
@@ -396,16 +396,16 @@ describe('Signup', () => {
             expect(signinButton).toBeInTheDocument();
             expect(chooseBtns).toHaveLength(2);
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
             fireEvent.click(monthlyPlanContainer);
             await within(popupIframeDocument).findByText(benefitText);
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             fireEvent.click(chooseBtns[1]);
 
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: '',
                 offerId: undefined,
                 plan: singleTierProduct.monthlyPrice.id
@@ -431,17 +431,17 @@ describe('Signup', () => {
             expect(signinButton).toBeInTheDocument();
             expect(chooseBtns).toHaveLength(1);
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
 
             fireEvent.click(chooseBtns[0]);
             const singleTierProduct = FixtureSite.singleTier.basic.products.find(p => p.type === 'paid');
 
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 offerId: undefined,
                 plan: singleTierProduct.yearlyPrice.id
@@ -470,14 +470,14 @@ describe('Signup', () => {
             expect(offerName).toBeInTheDocument();
             expect(offerDescription).toBeInTheDocument();
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             fireEvent.click(submitButton);
 
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 offerId,
                 plan: planId
@@ -544,13 +544,13 @@ describe('Signup', () => {
             expect(chooseBtns).toHaveLength(4);
 
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
             fireEvent.click(chooseBtns[0]);
             expect(ghostApi.member.sendMagicLink).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 plan: 'free'
             });
@@ -574,13 +574,13 @@ describe('Signup', () => {
             expect(freePlanTitle[0]).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             fireEvent.click(chooseBtns[0]);
 
             expect(ghostApi.member.sendMagicLink).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: '',
                 plan: 'free'
             });
@@ -608,15 +608,15 @@ describe('Signup', () => {
             expect(submitButton).not.toBeInTheDocument();
             submitButton = within(popupIframeDocument).queryByRole('button', {name: 'Sign up'});
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
             fireEvent.click(submitButton);
 
             expect(ghostApi.member.sendMagicLink).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 plan: 'free'
             });
@@ -651,9 +651,9 @@ describe('Signup', () => {
             expect(chooseBtns).toHaveLength(4);
 
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
 
             fireEvent.click(tierContainer[0]);
@@ -690,14 +690,14 @@ describe('Signup', () => {
             expect(offerName).toBeInTheDocument();
             expect(offerDescription).toBeInTheDocument();
 
-            fireEvent.change(emailInput, {target: {value: 'jamie@example.com'}});
+            fireEvent.change(emailInput, {target: {value: 'enrique@ejemplo.com'}});
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
 
-            expect(emailInput).toHaveValue('jamie@example.com');
+            expect(emailInput).toHaveValue('enrique@ejemplo.com');
             fireEvent.click(submitButton);
 
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
-                email: 'jamie@example.com',
+                email: 'enrique@ejemplo.com',
                 name: 'Jamie Larsen',
                 offerId,
                 plan: planId

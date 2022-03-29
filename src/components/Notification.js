@@ -34,31 +34,31 @@ const NotificationText = ({type, status, context}) => {
         const firstname = context.member.firstname || '';
         return (
             <p>
-                Welcome back{(firstname ? ', ' + firstname : '')}!<br />You've successfully signed in.
+                Bienvenido de nuevo{(firstname ? ', ' + firstname : '')}!<br />Has iniciado sesión correctamente.
             </p>
         );
     } else if (type === 'signin' && status === 'error') {
         return (
             <p>
-                Could not sign in. Login link expired. <a href={signinPortalLink} target="_parent">Click here to retry</a>
+                No se pudo iniciar sesión. El enlace de inicio de sesión ha caducado. <a href={signinPortalLink} target="_parent">Haz click aquí para probar de nuevo</a>
             </p>
         );
     } else if (type === 'signup' && status === 'success') {
         return (
             <p>
-                You've successfully subscribed to <br /><strong>{context.site.title}</strong>
+                Te has suscrito con éxito a <br /><strong>{context.site.title}</strong>
             </p>
         );
     } else if (type === 'signup-paid' && status === 'success') {
         return (
             <p>
-                You've successfully subscribed to <br /><strong>{context.site.title}</strong>
+                Te has suscrito con éxito a <br /><strong>{context.site.title}</strong>
             </p>
         );
     } else if (type === 'updateEmail' && status === 'success') {
         return (
             <p>
-                Success! Your email is updated.
+                ¡Bien! Tu correo electrónico se ha actualizado.
             </p>
         );
     } else if (type === 'updateEmail' && status === 'error') {
@@ -70,26 +70,26 @@ const NotificationText = ({type, status, context}) => {
     } else if (type === 'signup' && status === 'error') {
         return (
             <p>
-                Signup error: Invalid link <br /><a href={singupPortalLink} target="_parent">Click here to retry</a>
+                Error de registro: enlace no válido <br /><a href={singupPortalLink} target="_parent">Haz click aquí para probar de nuevo</a>
             </p>
         );
     } else if (type === 'signup-paid' && status === 'error') {
         return (
             <p>
-                Signup error: Invalid link <br /><a href={singupPortalLink} target="_parent">Click here to retry</a>
+                Error de registro: enlace no válido <br /><a href={singupPortalLink} target="_parent">Haz click aquí para probar de nuevo</a>
             </p>
         );
     } else if (type === 'stripe:checkout' && status === 'success') {
         if (context.member) {
             return (
                 <p>
-                    Success! Your account is fully activated, you now have access to all content.
+                    ¡Éxito! Tu cuenta está completamente activada, ahora tienes acceso a todo el contenido.
                 </p>
             );
         }
         return (
             <p>
-                Success! Check your email for magic link to sign-in.
+                ¡Éxito! Revisa tu correo electrónico para iniciar sesión con el enlace mágico.
             </p>
         );
     } else if (type === 'stripe:checkout' && status === 'warning') {
@@ -97,19 +97,19 @@ const NotificationText = ({type, status, context}) => {
         if (context.member) {
             return (
                 <p>
-                    Plan upgrade was cancelled.
+                    La actualización del plan fue cancelada.
                 </p>
             );
         }
         return (
             <p>
-                Plan checkout was cancelled.
+                El pago del plan fue cancelado.
             </p>
         );
     }
     return (
         <p>
-            {status === 'success' ? 'Success' : 'Error'}
+            {status === 'success' ? 'Éxito' : 'Error'}
         </p>
     );
 };

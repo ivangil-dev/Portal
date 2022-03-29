@@ -512,8 +512,8 @@ function ProductCardPrice({product}) {
     return (
         <div className="gh-portal-product-card-pricecontainer">
             <div className="gh-portal-product-price">
-                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>{currencySymbol}</span>
                 <span className="amount">{formatNumber(getStripeAmount(activePrice.amount))}</span>
+                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>{currencySymbol}</span>
                 <span className="billing-period">/{activePrice.interval}</span>
             </div>
             {(selectedInterval === 'year' ? <YearlyDiscount discount={yearlyDiscount} /> : '')}
@@ -689,10 +689,10 @@ function ProductPriceSwitch({products, selectedInterval, setSelectedInterval}) {
             <div className={'gh-portal-products-pricetoggle' + (selectedInterval === 'month' ? ' left' : '')}>
                 <button className={'gh-portal-btn' + (selectedInterval === 'month' ? ' active' : '')} onClick={(e) => {
                     setSelectedInterval('month');
-                }}>Monthly</button>
+                }}>Mensual</button>
                 <button className={'gh-portal-btn' + (selectedInterval === 'year' ? ' active' : '')} onClick={(e) => {
                     setSelectedInterval('year');
-                }}>Yearly</button>
+                }}>Anual</button>
             </div>
         </div>
     );
@@ -714,19 +714,19 @@ function getSelectedPrice({products, selectedProduct, selectedInterval}) {
 
 function getActiveInterval({portalPlans, selectedInterval = 'year'}) {
     if (selectedInterval === 'month' && portalPlans.includes('monthly')) {
-        return 'month';
+        return 'mes';
     }
 
     if (selectedInterval === 'year' && portalPlans.includes('yearly')) {
-        return 'year';
+        return 'año';
     }
 
     if (portalPlans.includes('monthly')) {
-        return 'month';
+        return 'mes';
     }
 
     if (portalPlans.includes('yearly')) {
-        return 'year';
+        return 'año';
     }
 }
 
@@ -890,7 +890,7 @@ function ChangeProductCard({product, onPlanSelect}) {
                 </div>
                 {(currentPlan ?
                     <div className='gh-portal-btn-product'>
-                        <span className='gh-portal-current-plan'><span>Current plan</span></span>
+                        <span className='gh-portal-current-plan'><span>Plan actual</span></span>
                     </div>
                     :
                     <div className='gh-portal-btn-product'>
@@ -899,7 +899,7 @@ function ChangeProductCard({product, onPlanSelect}) {
                             onClick={() => {
                                 onPlanSelect(null, selectedPrice?.id);
                             }}
-                        >Choose</button>
+                        >Elegir</button>
                     </div>)}
             </div>
         </div>

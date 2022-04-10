@@ -21,6 +21,11 @@ function AccountHeader() {
 }
 
 function NewsletterPrefSection({newsletter}) {
+    const {onAction, member} = useContext(AppContext);
+    let newsletters = [...(member.newsletters || [])];
+    const isChecked = newsletters.some((d) => {
+        return d.id === newsletter?.id;
+    });
     return (
         <section>
             <div className='gh-portal-list-detail'>
@@ -28,9 +33,22 @@ function NewsletterPrefSection({newsletter}) {
                 <p>{newsletter.description}</p>
             </div>
             <div>
-                <Switch id={newsletter.id} onToggle={(e) => {
-                    // handle newsletter pref toggle
-                }} checked={false} />
+                <Switch id={newsletter.id} onToggle={(e, checked) => {
+                    onAction('showPopupNotification', {
+                        action: 'updated:success',
+                        message: `${newsletter.name} newsletter preference updated.`
+                    });
+                    if (!checked) {
+                        newsletters = newsletters.filter((d) => {
+                            return d.id !== newsletter.id;
+                        });
+                    } else {
+                        newsletters = newsletters.filter((d) => {
+                            return d.id !== newsletter.id;
+                        }).concat(newsletter);
+                    }
+                    onAction('updateNewsletterPreference', {newsletters});
+                }} checked={isChecked} />
             </div>
         </section>
     );
@@ -41,9 +59,7 @@ function NewsletterPrefs() {
     const newsletters = getSiteNewsletters({site});
     return newsletters.map((newsletter) => {
         return (
-            <>
-                <NewsletterPrefSection key={newsletter?.id} newsletter={newsletter} />
-            </>
+            <NewsletterPrefSection key={newsletter?.id} newsletter={newsletter} />
         );
     });
 }

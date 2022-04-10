@@ -173,7 +173,7 @@ class NotificationContent extends React.Component {
                 <div className={`gh-portal-notification${statusClass}${slideClass}`} onAnimationEnd={e => this.onAnimationEnd(e)}>
                     {(status === 'error' ? <WarningIcon className='gh-portal-notification-icon error' alt=''/> : <CheckmarkIcon className='gh-portal-notification-icon success' alt=''/>)}
                     <NotificationText type={type} status={status} context={this.context} />
-                    <CloseIcon className='gh-portal-notification-closeicon' alt='Close' onClick={e => this.onNotificationClose(e)} />
+                    <CloseIcon className='gh-portal-notification-closeicon' alt='Cerrar' onClick={e => this.onNotificationClose(e)} />
                 </div>
             </div>
         );

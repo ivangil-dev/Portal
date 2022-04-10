@@ -732,19 +732,19 @@ function getSelectedPrice({products, selectedProduct, selectedInterval}) {
 
 function getActiveInterval({portalPlans, selectedInterval = 'year'}) {
     if (selectedInterval === 'month' && portalPlans.includes('monthly')) {
-        return 'mes';
+        return 'month';
     }
 
     if (selectedInterval === 'year' && portalPlans.includes('yearly')) {
-        return 'año';
+        return 'year';
     }
 
     if (portalPlans.includes('monthly')) {
-        return 'mes';
+        return 'month';
     }
 
     if (portalPlans.includes('yearly')) {
-        return 'año';
+        return 'year';
     }
 }
 
@@ -861,7 +861,7 @@ export function ChangeProductSection({onPlanSelect, selectedPlan, products, type
                     disabled={!selectedPrice?.id || (activePrice.id === selectedPrice?.id)}
                     isPrimary={true}
                     brandColor={brandColor}
-                    label={'Continue'}
+                    label={'Continuar'}
                     style={{height: '40px', width: '100%', marginTop: '24px'}}
                 /> */}
             </section>

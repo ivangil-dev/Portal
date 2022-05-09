@@ -532,7 +532,7 @@ function ProductCardPrice({product}) {
         <div className="gh-portal-product-card-pricecontainer">
             <div className="gh-portal-product-price">
                 <span className="amount">{formatNumber(getStripeAmount(activePrice.amount))}</span>
-                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>{currencySymbol}</span>
+                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>€</span>
                 <span className="billing-period">/{(activePrice.interval === 'year' ? 'año' : 'mes')}</span>
             </div>
             {(selectedInterval === 'year' ? <YearlyDiscount discount={yearlyDiscount} /> : '')}
@@ -589,7 +589,7 @@ function FreeProductCard({products, handleChooseSignup}) {
                         <div className="gh-portal-product-card-pricecontainer">
                             <div className="gh-portal-product-price">
                                 <span className="amount">0</span>
-                                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>{currencySymbol}</span>
+                                <span className={'currency-sign' + (currencySymbol.length > 1 ? ' long' : '')}>€</span>
                             </div>
                             {/* <div className="gh-portal-product-alternative-price"></div> */}
                         </div>

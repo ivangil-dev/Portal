@@ -290,7 +290,7 @@ function PriceLabel({currencySymbol, price, interval}) {
         <div className='gh-portal-plan-pricelabel'>
             <div className='gh-portal-plan-pricecontainer'>
                 <span className='gh-portal-plan-price'>{formatNumber(price)}</span>
-                <span className={currencyClass}>{currencySymbol}</span>
+                <span className={currencyClass}>€</span>
             </div>
         </div>
     );
@@ -375,7 +375,7 @@ function ChangePlanOptions({plans, selectedPlan, onPlanSelect, changePlan}) {
         return (
             <div className={planClass} key={id} onClick={e => onPlanSelect(e, id)}>
                 <h4 className={planNameClass}>{displayName}</h4>
-                <PriceLabel currencySymbol={currencySymbol} price={price} interval={interval} />
+                <PriceLabel currencySymbol='€' price={price} interval={interval} />
                 <div className={featureClass} style={{border: 'none', paddingTop: '3px'}}>
                     {(changePlan && selectedPlan === id ? <span className='gh-portal-plan-current'>Plan actual</span> : '')}
                 </div>

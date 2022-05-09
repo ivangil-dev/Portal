@@ -100,7 +100,7 @@ export default class SigninPage extends React.Component {
         return (
             <div className='gh-portal-signup-message'>
                 <div>¿No tienes una cuenta?</div>
-                <button className='gh-portal-btn gh-portal-btn-link' style={{color: brandColor}} onClick={() => this.context.onAction('switchPage', {page: 'signup'})}><span>Sign up</span></button>
+                <button className='gh-portal-btn gh-portal-btn-link' style={{color: brandColor}} onClick={() => this.context.onAction('switchPage', {page: 'signup'})}><span>Regístrate</span></button>
             </div>
         );
     }

@@ -323,9 +323,9 @@ export function getFreeProductBenefits({site}) {
 
 export function getFreeTierTitle({site}) {
     if (hasOnlyFreeProduct({site})) {
-        return 'Free membership';
+        return 'Suscripción gratis';
     } else {
-        return 'Free';
+        return 'Gratis';
     }
 }
 

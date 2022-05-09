@@ -24,7 +24,7 @@ export default function AccountEmailPage() {
                 setSubscribedNewsletters([]);
                 onAction('showPopupNotification', {
                     action: 'updated:success',
-                    message: `Newsletter preference updated.`
+                    message: `Preferencias del boletín actualizadas.`
                 });
                 onAction('updateNewsletterPreference', {newsletters: []});
             }}

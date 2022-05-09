@@ -42,17 +42,17 @@ const React = require('react');
 
 function getConfirmationPageTitle({confirmationType}) {
     if (confirmationType === 'changePlan') {
-        return 'Confirm subscription';
+        return 'Confirmar suscripción';
     } else if (confirmationType === 'cancel') {
-        return 'Cancel subscription';
+        return 'Cancelar suscripción';
     } else if (confirmationType === 'subscribe') {
-        return 'Subscribe';
+        return 'Suscribirme';
     }
 }
 
 const Header = ({onBack, showConfirmation, confirmationType}) => {
     const {member} = useContext(AppContext);
-    let title = isPaidMember({member}) ? 'Change plan' : 'Choose a plan';
+    let title = isPaidMember({member}) ? 'Cambiar de plan' : 'Elegir un plan';
     if (showConfirmation) {
         title = getConfirmationPageTitle({confirmationType});
     }
@@ -77,7 +77,7 @@ const CancelSubscriptionButton = ({member, onCancelSubscription, action, brandCo
     if (subscription.cancel_at_period_end) {
         return null;
     }
-    const label = 'Cancel subscription';
+    const label = 'Cancelar suscripción';
     const isRunning = ['cancelSubscription:running'].includes(action);
     const disabled = (isRunning) ? true : false;
     const isPrimary = !!subscription.cancel_at_period_end;
@@ -113,23 +113,23 @@ const PlanConfirmationSection = ({plan, type, onConfirm}) => {
     const [reason, setReason] = useState('');
     const subscription = getMemberSubscription({member});
     const isRunning = ['updateSubscription:running', 'checkoutPlan:running', 'cancelSubscription:running'].includes(action);
-    const label = 'Confirm';
+    const label = 'Confirmar';
     let planStartDate = getDateString(subscription.current_period_end);
     const currentActivePlan = getMemberActivePrice({member});
     if (currentActivePlan.id !== plan.id) {
-        planStartDate = 'today';
+        planStartDate = 'hoy';
     }
     const priceString = formatNumber(plan.price);
-    const planStartMessage = `${plan.currency_symbol}${priceString}/${plan.interval} – Starting ${planStartDate}`;
+    const planStartMessage = `${priceString}${plan.currency_symbol}/${plan.interval} – A partir del  ${planStartDate}`;
     const product = getProductFromPrice({site, priceId: plan?.id});
-    const priceLabel = hasMultipleProductsFeature({site}) ? product?.name : 'Price';
+    const priceLabel = hasMultipleProductsFeature({site}) ? product?.name : 'Precio';
     if (type === 'changePlan') {
         return (
             <div className='gh-portal-logged-out-form-container'>
                 <div className='gh-portal-list mb6'>
                     <section>
                         <div className='gh-portal-list-detail'>
-                            <h3>Account</h3>
+                            <h3>Cuenta</h3>
                             <p>{member.email}</p>
                         </div>
                     </section>
@@ -156,15 +156,15 @@ const PlanConfirmationSection = ({plan, type, onConfirm}) => {
     } else {
         return (
             <div className="gh-portal-logged-out-form-container gh-portal-cancellation-form">
-                <p>If you cancel your subscription now, you will continue to have access until <strong>{getDateString(subscription.current_period_end)}</strong>.</p>
+                <p>Si cancelas tu suscripción ahora, continuarás teniendo acceso hasta <strong>{getDateString(subscription.current_period_end)}</strong>.</p>
                 <section className='gh-portal-input-section'>
                     <div className='gh-portal-input-labelcontainer'>
-                        <label className='gh-portal-input-label'>Cancellation reason</label>
+                        <label className='gh-portal-input-label'>Motivo de cancelación</label>
                     </div>
                     <textarea
                         className='gh-portal-input'
                         key='cancellation_reason'
-                        label='Cancellation reason'
+                        label='Motivo de cancelación'
                         type='text'
                         name='cancellation_reason'
                         placeholder=''
@@ -179,7 +179,7 @@ const PlanConfirmationSection = ({plan, type, onConfirm}) => {
                     isRunning={isRunning}
                     isPrimary={true}
                     brandColor={brandColor}
-                    label={label + ' cancellation'}
+                    label={label + ' cancelación'}
                     style={{
                         width: '100%',
                         height: '40px'
@@ -249,7 +249,7 @@ const UpgradePlanSection = ({
                 isRunning={isRunning}
                 isPrimary={true}
                 brandColor={brandColor}
-                label={'Continue'}
+                label={'Continuar'}
                 style={{height: '40px', width: '100%', marginTop: '24px'}}
             /> */}
         </section>

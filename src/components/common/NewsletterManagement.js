@@ -15,7 +15,7 @@ function AccountHeader() {
             <BackButton brandColor={brandColor} hidden={!lastPage} onClick={(e) => {
                 onAction('back');
             }} />
-            <h3 className='gh-portal-main-title'>Email preferences</h3>
+            <h3 className='gh-portal-main-title'>Preferencias de emails</h3>
         </header>
     );
 }
@@ -94,7 +94,7 @@ function NewsletterPrefs({subscribedNewsletters, setSubscribedNewsletters}) {
 function ShowPaidMemberMessage({site, isPaid}) {
     if (isPaid) {
         return (
-            <p style={{textAlign: 'center', marginTop: '12px', marginBottom: '0', color: 'var(--grey6)'}}>Unsubscribing from emails will not cancel your paid subscription to {site?.title}</p>
+            <p style={{textAlign: 'center', marginTop: '12px', marginBottom: '0', color: 'var(--grey6)'}}>Dar de baja los correos electrónicos no cancelará tu suscripción de pago en {site?.title}</p>
         );
     }
     return null;
@@ -137,7 +137,7 @@ export default function NewsletterManagement({
                         disabled={isDisabled}
                         brandColor={brandColor}
                         isPrimary={false}
-                        label='Unsubscribe from all emails'
+                        label='Darme de baja en todos los correos electrónicos'
                         isDestructive={true}
                         style={{width: '100%'}}
                     />

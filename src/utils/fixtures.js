@@ -142,7 +142,7 @@ export const member = {
         subscriptions: [
             getSubscriptionData({
                 status: 'active',
-                currency: 'USD',
+                currency: 'EUR',
                 interval: 'year',
                 amount: 5000,
                 cardLast4: '4242',

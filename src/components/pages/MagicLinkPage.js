@@ -27,12 +27,12 @@ export default class MagicLinkPage extends React.Component {
     static contextType = AppContext;
 
     renderFormHeader() {
-        let popupTitle = `We've sent you a login link!`;
-        let popupDescription = `If the email doesn't arrive in 3 minutes, be sure to check your spam folder!`;
+        let popupTitle = `Te hemos enviado un enlace de inicio de sesión!`;
+        let popupDescription = `Si el correo electrónico no llega en 3 minutos, ¡asegúrate de revisar tu carpeta de spam!`;
 
         if (this.context.lastPage === 'signup') {
-            popupTitle = `Now check your email!`;
-            popupDescription = `To complete signup, click the confirmation link in your inbox. If it doesn’t arrive within 3 minutes, check your spam folder!`;
+            popupTitle = `¡Ahora revisa tu correo electrónico!`;
+            popupDescription = `Para completar la inscripción, haz clic en el enlace de confirmación en tu bandeja de entrada. Si no llega dentro de 3 minutos, ¡revisa tu carpeta de spam!`;
         }
 
         return (
@@ -53,7 +53,7 @@ export default class MagicLinkPage extends React.Component {
                     style={{color: '#1d1d1d', fontWeight: 'bold', cursor: 'pointer'}}
                     onClick={() => this.context.onAction('switchPage', {page: 'signin'})}
                 >
-                    Back to Log in
+                    Atrás para iniciar sesión
                 </div>
             </>
         );
@@ -64,7 +64,7 @@ export default class MagicLinkPage extends React.Component {
     }
 
     renderCloseButton() {
-        const label = 'Close';
+        const label = 'Cerrar';
         return (
             <ActionButton
                 style={{width: '100%'}}

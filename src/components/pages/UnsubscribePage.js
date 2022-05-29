@@ -85,9 +85,9 @@ export default function UnsubscribePage() {
             <div className='gh-portal-content gh-portal-unsubscribe with-footer'>
                 <CloseButton />
                 <AccountHeader />
-                <h1 className="gh-portal-main-title">Unsubscribe failed</h1>
+                <h1 className="gh-portal-main-title">La cancelación de la suscripción ha fallado</h1>
                 <div>
-                    <p className="gh-portal-text-center">Email address not found.</p>
+                    <p className="gh-portal-text-center">Dirección de correo electrónico no encontrada.</p>
                 </div>
             </div>
         );
@@ -99,17 +99,17 @@ export default function UnsubscribePage() {
             <div className='gh-portal-content gh-portal-unsubscribe with-footer'>
                 <CloseButton />
                 <AccountHeader />
-                <h1 className="gh-portal-main-title">Successfully unsubscribed</h1>
+                <h1 className="gh-portal-main-title">Baja en suscripción realizada con éxito</h1>
                 <div>
-                    <p className='gh-portal-text-center'><strong>{member?.email}</strong> will no longer receive this newsletter.</p>
-                    <p className='gh-portal-text-center'>Didn't mean to do this? Manage your preferences
+                    <p className='gh-portal-text-center'><strong>{member?.email}</strong> ya no recibirá este boletín.</p>
+                    <p className='gh-portal-text-center'>¿No querías hacer esto? Cambia tus preferencias
                         <button
                             className="gh-portal-btn-link gh-portal-btn-branded gh-portal-btn-inline"
                             onClick={() => {
                                 setShowPrefs(true);
                             }}
                         >
-                        here
+                        aquí
                         </button>.
                     </p>
                 </div>
@@ -123,7 +123,7 @@ export default function UnsubscribePage() {
         });
         const hideClassName = hasInteracted ? 'gh-portal-hide' : '';
         return (
-            <p className={`gh-portal-text-center gh-portal-header-message ${hideClassName}`}><strong>{member?.email}</strong> will no longer receive <strong>{unsubscribedNewsletter?.name}</strong> newsletter.</p>
+            <p className={`gh-portal-text-center gh-portal-header-message ${hideClassName}`}><strong>{member?.email}</strong> ya no recibirá el boletín informativo <strong>{unsubscribedNewsletter?.name}</strong>.</p>
         );
     };
 
@@ -141,7 +141,7 @@ export default function UnsubscribePage() {
                 setSubscribedNewsletters([]);
                 onAction('showPopupNotification', {
                     action: 'updated:success',
-                    message: `Newsletter preference updated.`
+                    message: `Preferencias del boletín actualizadas.`
                 });
                 await api.member.updateNewsletters({uuid: pageData.uuid, newsletters: []});
             }}

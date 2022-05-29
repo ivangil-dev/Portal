@@ -113,23 +113,23 @@ const PlanConfirmationSection = ({plan, type, onConfirm}) => {
     const [reason, setReason] = useState('');
     const subscription = getMemberSubscription({member});
     const isRunning = ['updateSubscription:running', 'checkoutPlan:running', 'cancelSubscription:running'].includes(action);
-    const label = 'Confirm';
+    const label = 'Confirmar';
     let planStartDate = getDateString(subscription.current_period_end);
     const currentActivePlan = getMemberActivePrice({member});
     if (currentActivePlan.id !== plan.id) {
         planStartDate = 'today';
     }
     const priceString = formatNumber(plan.price);
-    const planStartMessage = `${plan.currency_symbol}${priceString}/${plan.interval} – Starting ${planStartDate}`;
+    const planStartMessage = `${plan.currency_symbol}${priceString}/${plan.interval} – Empieza el ${planStartDate}`;
     const product = getProductFromPrice({site, priceId: plan?.id});
-    const priceLabel = hasMultipleProductsFeature({site}) ? product?.name : 'Price';
+    const priceLabel = hasMultipleProductsFeature({site}) ? product?.name : 'Precio';
     if (type === 'changePlan') {
         return (
             <div className='gh-portal-logged-out-form-container'>
                 <div className='gh-portal-list mb6'>
                     <section>
                         <div className='gh-portal-list-detail'>
-                            <h3>Account</h3>
+                            <h3>Cuenta</h3>
                             <p>{member.email}</p>
                         </div>
                     </section>
@@ -156,15 +156,15 @@ const PlanConfirmationSection = ({plan, type, onConfirm}) => {
     } else {
         return (
             <div className="gh-portal-logged-out-form-container gh-portal-cancellation-form">
-                <p>If you cancel your subscription now, you will continue to have access until <strong>{getDateString(subscription.current_period_end)}</strong>.</p>
+                <p>Si cancelas tu suscripción ahora, continuarás teniendo acceso hasta el <strong>{getDateString(subscription.current_period_end)}</strong>.</p>
                 <section className='gh-portal-input-section'>
                     <div className='gh-portal-input-labelcontainer'>
-                        <label className='gh-portal-input-label'>Cancellation reason</label>
+                        <label className='gh-portal-input-label'>Razón de cancelación</label>
                     </div>
                     <textarea
                         className='gh-portal-input'
                         key='cancellation_reason'
-                        label='Cancellation reason'
+                        label='Razón de cancelación'
                         type='text'
                         name='cancellation_reason'
                         placeholder=''

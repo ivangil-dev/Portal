@@ -66,18 +66,18 @@ describe('Helpers - ', () => {
 
     describe('isSameCurrency - ', () => {
         test('can match two currencies correctly ', () => {
-            let currency1 = 'USD';
-            let currency2 = 'USD';
+            let currency1 = 'EUR';
+            let currency2 = 'EUR';
             expect(isSameCurrency(currency1, currency2)).toBe(true);
         });
         test('can match currencies with case mismatch', () => {
-            let currency1 = 'USD';
-            let currency2 = 'usd';
+            let currency1 = 'EUR';
+            let currency2 = 'eur';
             expect(isSameCurrency(currency1, currency2)).toBe(true);
         });
         test('can match currencies with case mismatch', () => {
             let currency1 = 'eur';
-            let currency2 = 'usd';
+            let currency2 = 'eur';
             expect(isSameCurrency(currency1, currency2)).toBe(false);
         });
     });

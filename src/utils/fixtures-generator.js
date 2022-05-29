@@ -233,7 +233,7 @@ export function getPriceData({
     amount = (interval === 'month' ? 500 : 5000),
     nickname = interval === 'month' ? 'Monthly' : 'Yearly',
     description = null,
-    currency = 'usd',
+    currency = 'eur',
     active = true,
     id = `price_${objectId()}`
 } = {}) {
@@ -254,10 +254,10 @@ export function getPriceData({
 export function getSubscriptionData({
     id = `sub_${objectId()}`,
     status = 'active',
-    currency = 'USD',
+    currency = 'EUR',
     interval = 'year',
     amount = (interval === 'month' ? 500 : 5000),
-    nickname = (interval === 'month' ? 'Monthly' : 'Yearly'),
+    nickname = (interval === 'month' ? 'Mensual' : 'Anual'),
     cardLast4 = '4242',
     offer: localOffer = offer,
     priceId: price_id = `price_${objectId()}`,

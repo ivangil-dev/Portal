@@ -608,7 +608,7 @@ function FreeProductCard({products, handleChooseSignup}) {
                                 onClick={(e) => {
                                     handleChooseSignup(e, 'free');
                                 }}>
-                                {((selectedProduct === 'free' && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Choose')}
+                                {((selectedProduct === 'free' && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Elegir')}
                             </button>
                         </div>
                         : '')}
@@ -659,7 +659,7 @@ function ProductCard({product, products, selectedInterval, handleChooseSignup}) 
                                 const selectedPrice = getSelectedPrice({products, selectedInterval, selectedProduct: product.id});
                                 handleChooseSignup(e, selectedPrice.id);
                             }}>
-                            {((selectedProduct === product.id && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Choose')}
+                            {((selectedProduct === product.id && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Elegir')}
                         </button>
                     </div>
                 </div>

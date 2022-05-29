@@ -370,9 +370,9 @@ export function getFreeProductBenefits({site}) {
 
 export function getFreeTierTitle({site}) {
     if (hasOnlyFreeProduct({site})) {
-        return 'Free membership';
+        return 'Suscripción gratuita';
     } else {
-        return 'Free';
+        return 'Gratis';
     }
 }
 

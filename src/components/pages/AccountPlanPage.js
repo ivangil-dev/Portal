@@ -42,17 +42,17 @@ const React = require('react');
 
 function getConfirmationPageTitle({confirmationType}) {
     if (confirmationType === 'changePlan') {
-        return 'Confirm subscription';
+        return 'Confirmar suscripción';
     } else if (confirmationType === 'cancel') {
-        return 'Cancel subscription';
+        return 'Cancelar suscripción';
     } else if (confirmationType === 'subscribe') {
-        return 'Subscribe';
+        return 'Suscribirme';
     }
 }
 
 const Header = ({onBack, showConfirmation, confirmationType}) => {
     const {member} = useContext(AppContext);
-    let title = isPaidMember({member}) ? 'Change plan' : 'Choose a plan';
+    let title = isPaidMember({member}) ? 'Cambio de plan' : 'Elegir un plan';
     if (showConfirmation) {
         title = getConfirmationPageTitle({confirmationType});
     }
@@ -77,7 +77,7 @@ const CancelSubscriptionButton = ({member, onCancelSubscription, action, brandCo
     if (subscription.cancel_at_period_end) {
         return null;
     }
-    const label = 'Cancel subscription';
+    const label = 'Cancelar suscripción';
     const isRunning = ['cancelSubscription:running'].includes(action);
     const disabled = (isRunning) ? true : false;
     const isPrimary = !!subscription.cancel_at_period_end;

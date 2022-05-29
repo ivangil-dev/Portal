@@ -47,7 +47,7 @@ function getMockData() {
             querySelector: (elem) => {
                 if (elem === 'input[data-members-email]') {
                     return {
-                        value: 'jamie@example.com'
+                        value: 'josetomas@ejemplo.com'
                     };
                 }
                 if (elem === 'input[data-members-name]') {
@@ -131,7 +131,7 @@ describe('Member Data attributes:', () => {
 
             expect(window.fetch).toHaveBeenCalledTimes(1);
 
-            expect(window.fetch).toHaveBeenCalledWith('https://portal.localhost/members/api/send-magic-link/', {body: '{"email":"jamie@example.com","emailType":"signup","labels":["Gold"],"name":"Jamie Larsen"}', headers: {'Content-Type': 'application/json'}, method: 'POST'});
+            expect(window.fetch).toHaveBeenCalledWith('https://portal.localhost/members/api/send-magic-link/', {body: '{"email":"josetomas@ejemplo.com","emailType":"signup","labels":["Gold"],"name":"Jamie Larsen"}', headers: {'Content-Type': 'application/json'}, method: 'POST'});
         });
     });
 

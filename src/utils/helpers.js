@@ -527,8 +527,8 @@ export function getFreePriceCurrency({site}) {
     const stripePrices = getAvailablePrices({site});
 
     let freePriceCurrencyDetail = {
-        currency: 'usd',
-        currency_symbol: '$'
+        currency: 'eur',
+        currency_symbol: '€'
     };
     if (stripePrices?.length > 0) {
         freePriceCurrencyDetail.currency = stripePrices[0].currency;

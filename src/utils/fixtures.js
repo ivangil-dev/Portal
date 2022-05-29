@@ -81,7 +81,7 @@ export const site = getSiteData({
     plans: {
         monthly: 5000,
         yearly: 150000,
-        currency: 'USD'
+        currency: 'EUR'
     },
 
     // Simulate pre-multiple-tiers state:
@@ -129,8 +129,8 @@ export const offer = getOfferData({
 
 export const member = {
     free: getMemberData({
-        name: 'Jamie Larson',
-        email: 'jamie@example.com',
+        name: 'José Tomás',
+        email: 'josetomas@ejemplo.com',
         firstname: 'Jamie',
         subscriptions: [],
         paid: false,
@@ -142,7 +142,7 @@ export const member = {
         subscriptions: [
             getSubscriptionData({
                 status: 'active',
-                currency: 'USD',
+                currency: 'EUR',
                 interval: 'year',
                 amount: 5000,
                 cardLast4: '4242',

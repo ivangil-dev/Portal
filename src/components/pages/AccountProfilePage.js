@@ -133,7 +133,7 @@ export default class AccountProfilePage extends React.Component {
             {
                 type: 'text',
                 value: state.name,
-                placeholder: 'Jamie Larson',
+                placeholder: 'José Tomás',
                 label: 'Name',
                 name: 'name',
                 required: true,
@@ -142,7 +142,7 @@ export default class AccountProfilePage extends React.Component {
             {
                 type: 'email',
                 value: state.email,
-                placeholder: 'jamie@example.com',
+                placeholder: 'josetomas@ejemplo.com',
                 label: 'Email',
                 name: 'email',
                 required: true,

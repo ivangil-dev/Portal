@@ -87,7 +87,7 @@ const baseSingleTierSite = getSiteData({
     plans: {
         monthly: 5000,
         yearly: 150000,
-        currency: 'USD'
+        currency: 'EUR'
     },
     products: singleSiteTier,
     portalProducts: singleSiteTier.filter(p => p.type === 'paid').map(p => p.id),
@@ -115,7 +115,7 @@ const baseMultiTierSite = getSiteData({
     plans: {
         monthly: 5000,
         yearly: 150000,
-        currency: 'USD'
+        currency: 'EUR'
     },
     products: multipleSiteTiers,
     portalProducts: multipleSiteTiers.filter(p => p.type === 'paid').map(p => p.id),
@@ -172,8 +172,8 @@ export const offer = getOfferData({
 
 export const member = {
     free: getMemberData({
-        name: 'Jamie Larson',
-        email: 'jamie@example.com',
+        name: 'José Tomás',
+        email: 'josetomas@ejemplo.com',
         firstname: 'Jamie',
         subscriptions: [],
         paid: false,
@@ -194,7 +194,7 @@ export const member = {
         subscriptions: [
             getSubscriptionData({
                 status: 'active',
-                currency: 'USD',
+                currency: 'EUR',
                 interval: 'year',
                 amount: 5000,
                 cardLast4: '4242',
@@ -209,7 +209,7 @@ export const member = {
         subscriptions: [
             getSubscriptionData({
                 status: 'canceled',
-                currency: 'USD',
+                currency: 'EUR',
                 interval: 'year',
                 amount: 5000,
                 cardLast4: '4242',
@@ -219,7 +219,7 @@ export const member = {
             }),
             getSubscriptionData({
                 status: 'active',
-                currency: 'USD',
+                currency: 'EUR',
                 interval: 'year',
                 amount: 5000,
                 cardLast4: '4242',

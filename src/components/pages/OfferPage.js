@@ -146,7 +146,7 @@ export default class OfferPage extends React.Component {
             {
                 type: 'email',
                 value: member?.email || state.email,
-                placeholder: 'jamie@example.com',
+                placeholder: 'josetomas@ejemplo.com',
                 label: 'Email',
                 name: 'email',
                 disabled: !!member,
@@ -168,7 +168,7 @@ export default class OfferPage extends React.Component {
             fields.unshift({
                 type: 'text',
                 value: member?.name || state.name,
-                placeholder: 'Jamie Larson',
+                placeholder: 'José Tomás',
                 label: 'Name',
                 name: 'name',
                 disabled: !!member,

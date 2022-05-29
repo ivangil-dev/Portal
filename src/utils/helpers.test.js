@@ -189,11 +189,11 @@ describe('Helpers - ', () => {
     describe('getSupportAddress -', () => {
         test('returns expected support address for non sub domain', () => {
             let site = {
-                members_support_address: 'jamie@example.com'
+                members_support_address: 'josetomas@ejemplo.com'
             };
             const supportAddress = getSupportAddress({site});
 
-            expect(supportAddress).toBe('jamie@example.com');
+            expect(supportAddress).toBe('josetomas@ejemplo.com');
         });
 
         test('returns expected support address for non www sub domain', () => {
@@ -211,7 +211,7 @@ describe('Helpers - ', () => {
             };
             const supportAddress = getSupportAddress({site});
 
-            expect(supportAddress).toBe('jamie@example.com');
+            expect(supportAddress).toBe('josetomas@ejemplo.com');
         });
 
         test('returns expected support address for default noreply value', () => {

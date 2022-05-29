@@ -45,7 +45,7 @@ function formSubmitHandler({event, form, errorEl, siteUrl, submitHandler}) {
             form.classList.add('success');
         } else {
             if (errorEl) {
-                errorEl.innerText = 'There was an error sending the email, please try again';
+                errorEl.innerText = 'Hubo un error al enviar el correo electrónico, inténtalo de nuevo';
             }
             form.classList.add('error');
         }
@@ -103,7 +103,7 @@ function planClickHandler({event, el, errorEl, siteUrl, site, member, clickHandl
             })
         }).then(function (res) {
             if (!res.ok) {
-                throw new Error('Could not create stripe checkout session');
+                throw new Error('No se pudo crear una sesión de pago de Stripe');
             }
             return res.json();
         });
@@ -191,7 +191,7 @@ function handleDataAttributes({siteUrl, site, member}) {
                     })
                 }).then(function (res) {
                     if (!res.ok) {
-                        throw new Error('Could not create stripe checkout session');
+                        throw new Error('No se pudo crear una sesión de pago de Stripe');
                     }
                     return res.json();
                 });
@@ -280,7 +280,7 @@ function handleDataAttributes({siteUrl, site, member}) {
                     el.classList.add('error');
 
                     if (errorEl) {
-                        errorEl.innerText = 'There was an error cancelling your subscription, please try again.';
+                        errorEl.innerText = 'Hubo un error de cancelar tu suscripción, inténtalo de nuevo.';
                     }
                 }
             });
@@ -330,7 +330,7 @@ function handleDataAttributes({siteUrl, site, member}) {
                     el.classList.add('error');
 
                     if (errorEl) {
-                        errorEl.innerText = 'There was an error continuing your subscription, please try again.';
+                        errorEl.innerText = 'Hubo un error al ampliar tu suscripción, inténtalo de nuevo.';
                     }
                 }
             });

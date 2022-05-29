@@ -103,7 +103,7 @@ function NewsletterPrefs({subscribedNewsletters, setSubscribedNewsletters}) {
 function ShowPaidMemberMessage({site, isPaid}) {
     if (isPaid) {
         return (
-            <p style={{textAlign: 'center', marginTop: '12px', marginBottom: '0', color: 'var(--grey6)'}}>Unsubscribing from emails will not cancel your paid subscription to {site?.title}</p>
+            <p style={{textAlign: 'center', marginTop: '12px', marginBottom: '0', color: 'var(--grey6)'}}>Darte de baja de los correos electrónicos no cancelará tu suscripción de pago de {site?.title}</p>
         );
     }
     return null;

@@ -348,7 +348,7 @@ export default class App extends React.Component {
                     stripe_price_id: 'dummy_stripe_monthly',
                     stripe_product_id: 'dummy_stripe_product',
                     active: 1,
-                    nickname: 'Monthly',
+                    nickname: 'Mensual',
                     currency: currency,
                     amount: monthlyPrice,
                     type: 'recurring',
@@ -359,7 +359,7 @@ export default class App extends React.Component {
                     stripe_price_id: 'dummy_stripe_yearly',
                     stripe_product_id: 'dummy_stripe_product',
                     active: 1,
-                    nickname: 'Yearly',
+                    nickname: 'Anual',
                     currency: currency,
                     amount: yearlyPrice,
                     type: 'recurring',
@@ -377,7 +377,7 @@ export default class App extends React.Component {
             if (status === 'success') {
                 const popupNotification = createPopupNotification({
                     type, status, duration, closeable, autoHide, state: this.state,
-                    message: status === 'success' ? 'Billing info updated successfully' : ''
+                    message: status === 'success' ? 'Información de facturación actualizada correctamente' : ''
                 });
                 return {
                     showPopup: true,

@@ -77,24 +77,24 @@ export const PopupNotificationStyles = `
     }
 
     @keyframes popupnotification-slidein {
-        0% { 
-            transform: translateY(-10px); 
+        0% {
+            transform: translateY(-10px);
             opacity: 0;
         }
         60% { transform: translateY(2px); }
-        100% { 
-            transform: translateY(0); 
+        100% {
+            transform: translateY(0);
             opacity: 1.0;
         }
     }
 
     @keyframes popupnotification-slideout {
-        0% { 
+        0% {
             transform: translateY(0);
             opacity: 1.0;
         }
         40% { transform: translateY(2px); }
-        100% { 
+        100% {
             transform: translateY(-10px);
             opacity: 0;
         }
@@ -106,7 +106,7 @@ const CloseButton = ({hide = false, onClose}) => {
         return null;
     }
     return (
-        <CloseIcon className='closeicon' alt='Close' onClick={onClose} />
+        <CloseIcon className='closeicon' alt='Cerrar' onClick={onClose} />
     );
 };
 
@@ -119,9 +119,9 @@ const NotificationText = ({message, site}) => {
         );
     }
     return (
-        <p> An unexpected error occured. Please try again or <a href={supportAddressMail} onClick={() => {
+        <p> Se ha producido un error inesperado. Vuelve a intentarlo o contacta con <a href={supportAddressMail} onClick={() => {
             supportAddressMail && window.open(supportAddressMail);
-        }}>contact support</a> if the error persists.</p>
+        }}>soporte técnico</a> si el error persiste.</p>
     );
 };
 

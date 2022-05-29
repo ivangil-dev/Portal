@@ -20,7 +20,7 @@ export function getSiteData({
     plans = {
         monthly: 5000,
         yearly: 150000,
-        currency: 'USD'
+        currency: 'EUR'
     },
     products = getProductsData({numOfProducts: 1}),
     portalProducts = products.map(p => p.id),
@@ -103,8 +103,8 @@ export function getOfferData({
 }
 
 export function getMemberData({
-    name = 'Jamie Larson',
-    email = 'jamie@example.com',
+    name = 'José Tomás',
+    email = 'josetomas@ejemplo.com',
     firstname = 'Jamie',
     subscriptions = [],
     paid = false,
@@ -270,7 +270,7 @@ export function getSubscriptionData({
         customer: {
             id: `cus_${objectId()}`,
             name: 'Jamie',
-            email: 'jamie@example.com'
+            email: 'josetomas@ejemplo.com'
         },
         plan: {
             id: `price_${objectId()}`,

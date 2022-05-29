@@ -76,7 +76,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error('Failed to fetch site data');
+                    throw new Error('No se pudo obtener datos del sitio');
                 }
             });
         },
@@ -93,7 +93,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error('Failed to fetch site data');
+                    throw new Error('No se pudo obtener datos del sitio');
                 }
             });
         },
@@ -110,7 +110,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error('Failed to fetch site data');
+                    throw new Error('No se pudo obtener datos del sitio');
                 }
             });
         },
@@ -127,7 +127,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error('Failed to fetch site data');
+                    throw new Error('No se pudo obtener datos del sitio');
                 }
             });
         },
@@ -144,7 +144,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error('Failed to fetch offer data');
+                    throw new Error('No se pudo obtener datos de oferta');
                 }
             });
         }
@@ -230,7 +230,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return 'Success';
                 } else {
-                    throw new Error('Failed to send magic link email');
+                    throw new Error('No se pudo enviar un correo electrónico de acceso mágico');
                 }
             });
         },
@@ -245,7 +245,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                     window.location.replace(siteUrl);
                     return 'Success';
                 } else {
-                    throw new Error('Failed to signout');
+                    throw new Error('No se pudo firmar');
                 }
             });
         },
@@ -282,7 +282,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw new Error('Failed to upadte newsletter preferences');
+                    throw new Error('No se pudo actualizar las preferencias del boletín');
                 }
             });
         },
@@ -306,7 +306,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 if (res.ok) {
                     return 'Success';
                 } else {
-                    throw new Error('Failed to send email address verification email');
+                    throw new Error('No se pudo enviar el correo electrónico de verificación de dirección de correo electrónico');
                 }
             });
         },
@@ -352,7 +352,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 body: JSON.stringify(body)
             }).then(function (res) {
                 if (!res.ok) {
-                    throw new Error('Could not create stripe checkout session');
+                    throw new Error('No se pudo crear una sesión de pago de Stripe');
                 }
                 return res.json();
             }).then(function (result) {
@@ -398,7 +398,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 })
             }).then(function (res) {
                 if (!res.ok) {
-                    throw new Error('Could not create stripe checkout session');
+                    throw new Error('No se pudo crear una sesión de pago de Stripe');
                 }
                 return res.json();
             }).then(function (result) {

@@ -157,9 +157,9 @@ export function hasPrice({site = {}, plan}) {
     if (plan === 'free') {
         return !prices || prices.length === 0 || prices.find(p => p.type === 'free');
     } else if (plan === 'monthly') {
-        return prices && prices.length > 0 && prices.find(p => p.name === 'Monthly');
+        return prices && prices.length > 0 && prices.find(p => p.name === 'Mensual');
     } else if (plan === 'yearly') {
-        return prices && prices.length > 0 && prices.find(p => p.name === 'Yearly');
+        return prices && prices.length > 0 && prices.find(p => p.name === 'Anual');
     } else if (plan) {
         return prices && prices.length > 0 && prices.find(p => p.id === plan);
     }
@@ -171,11 +171,11 @@ export function getQueryPrice({site = {}, priceId}) {
     if (priceId === 'free') {
         return !prices || prices.length === 0 || prices.find(p => p.type === 'free');
     } else if (prices && prices.length > 0 && priceId === 'monthly') {
-        const monthlyByName = prices.find(p => p.name === 'Monthly');
+        const monthlyByName = prices.find(p => p.name === 'Mensual');
         const monthlyByInterval = prices.find(p => p.interval === 'month');
         return monthlyByName || monthlyByInterval;
     } else if (prices && prices.length > 0 && priceId === 'yearly') {
-        const yearlyByName = prices.find(p => p.name === 'Yearly');
+        const yearlyByName = prices.find(p => p.name === 'Anual');
         const yearlyByInterval = prices.find(p => p.interval === 'year');
         return yearlyByName || yearlyByInterval;
     } else if (prices && prices.length > 0 && priceId) {
@@ -370,9 +370,9 @@ export function getFreeProductBenefits({site}) {
 
 export function getFreeTierTitle({site}) {
     if (hasOnlyFreeProduct({site})) {
-        return 'Free membership';
+        return 'Membresía gratis';
     } else {
-        return 'Free';
+        return 'Gratis';
     }
 }
 
@@ -527,8 +527,8 @@ export function getFreePriceCurrency({site}) {
     const stripePrices = getAvailablePrices({site});
 
     let freePriceCurrencyDetail = {
-        currency: 'usd',
-        currency_symbol: '$'
+        currency: 'eur',
+        currency_symbol: '€'
     };
     if (stripePrices?.length > 0) {
         freePriceCurrencyDetail.currency = stripePrices[0].currency;
@@ -612,7 +612,7 @@ export const getSiteDomain = ({site}) => {
 };
 
 export const getCurrencySymbol = (currency) => {
-    return Intl.NumberFormat('en', {currency, style: 'currency'}).format(0).replace(/[\d\s.]/g, '');
+    return Intl.NumberFormat('es', {currency, style: 'currency'}).format(0).replace(/[\d\s.]/g, '');
 };
 
 export const getStripeAmount = (amount) => {
@@ -625,7 +625,7 @@ export const getStripeAmount = (amount) => {
 export const getPriceString = (price = {}) => {
     const symbol = getCurrencySymbol(price.currency);
     const amount = getStripeAmount(price.amount);
-    return `${symbol}${amount}/${price.interval}`;
+    return `${amount}${symbol}/${price.interval}`;
 };
 
 export const formatNumber = (amount) => {
@@ -692,7 +692,7 @@ export const getUpdatedOfferPrice = ({offer, price, useFormatted = false}) => {
         updatedAmount = originalAmount / 100;
     }
     if (useFormatted) {
-        return Intl.NumberFormat('en', {currency: price?.currency, style: 'currency'}).format(updatedAmount);
+        return Intl.NumberFormat('es', {currency: price?.currency, style: 'currency'}).format(updatedAmount);
     }
     return updatedAmount;
 };
@@ -707,7 +707,7 @@ function createMonthlyPrice({tier, priceId}) {
             id: `price-${priceId}`,
             active: true,
             type: 'recurring',
-            nickname: 'Monthly',
+            nickname: 'Mensual',
             currency: tier.currency,
             amount: tier.monthly_price,
             interval: 'month'
@@ -722,7 +722,7 @@ function createYearlyPrice({tier, priceId}) {
             id: `price-${priceId}`,
             active: true,
             type: 'recurring',
-            nickname: 'Yearly',
+            nickname: 'Anual',
             currency: tier.currency,
             amount: tier.yearly_price,
             interval: 'year'

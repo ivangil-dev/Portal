@@ -45,7 +45,7 @@ function formSubmitHandler({event, form, errorEl, siteUrl, submitHandler}) {
             form.classList.add('success');
         } else {
             if (errorEl) {
-                errorEl.innerText = 'There was an error sending the email, please try again';
+                errorEl.innerText = 'Hubo un error al enviar el correo electrónico, intente nuevamente';
             }
             form.classList.add('error');
         }

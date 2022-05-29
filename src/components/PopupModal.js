@@ -4,7 +4,6 @@ import AppContext from '../AppContext';
 import {getFrameStyles} from './Frame.styles';
 import Pages, {getActivePage} from '../pages';
 import PopupNotification from './common/PopupNotification';
-import PoweredBy from './common/PoweredBy';
 import {getSiteProducts, isInviteOnlySite, isCookiesDisabled, hasFreeProductPrice} from '../utils/helpers';
 
 const React = require('react');
@@ -200,14 +199,9 @@ class PopupContent extends React.Component {
                         {this.renderPopupNotification()}
                         {this.renderActivePage()}
                         {(popupSize === 'full' ?
-                            <div className={'gh-portal-powered inside ' + (hasMode(['preview']) ? 'hidden ' : '') + pageClass}>
-                                <PoweredBy />
-                            </div>
+                            ''
                             : '')}
                     </div>
-                </div>
-                <div className={'gh-portal-powered outside ' + (hasMode(['preview']) ? 'hidden ' : '') + pageClass}>
-                    <PoweredBy />
                 </div>
             </>
         );

@@ -111,11 +111,12 @@ async function signup({data, state, api}) {
             lastPage: 'signup'
         };
     } catch (e) {
+        const message = e?.message || 'Ha ocurrido un fallo con tu registro, inténtalo de nuevo';
         return {
             action: 'signup:failed',
             popupNotification: createPopupNotification({
                 type: 'signup:failed', autoHide: false, closeable: true, state, status: 'error',
-                message: 'Ha ocurrido un fallo con tu registro, inténtalo de nuevo'
+                message
             })
         };
     }

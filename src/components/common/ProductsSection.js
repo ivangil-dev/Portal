@@ -602,6 +602,7 @@ function FreeProductCard({products, handleChooseSignup}) {
                     </div>
                     {(!hasOnlyFree ?
                         <div className='gh-portal-btn-product'>
+                            {}
                             <button
                                 className='gh-portal-btn'
                                 disabled={disabled}
@@ -623,6 +624,10 @@ function ProductCard({product, products, selectedInterval, handleChooseSignup}) 
     const {action} = useContext(AppContext);
 
     const cardClass = selectedProduct === product.id ? 'gh-portal-product-card checked' : 'gh-portal-product-card';
+    const noOfProducts = products?.filter((d) => {
+        return d.type === 'paid';
+    })?.length;
+
     let disabled = (['signup:running', 'checkoutPlan:running'].includes(action)) ? true : false;
 
     if (isCookiesDisabled()) {
@@ -659,7 +664,7 @@ function ProductCard({product, products, selectedInterval, handleChooseSignup}) 
                                 const selectedPrice = getSelectedPrice({products, selectedInterval, selectedProduct: product.id});
                                 handleChooseSignup(e, selectedPrice.id);
                             }}>
-                            {((selectedProduct === product.id && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : 'Elegir')}
+                            {((selectedProduct === product.id && disabled) ? <LoaderIcon className='gh-portal-loadingicon' /> : (noOfProducts > 1 ? 'Elegir' : 'Continuar'))}
                         </button>
                     </div>
                 </div>

@@ -185,7 +185,7 @@ describe('Signup', () => {
             } = await setup({
                 site: FixtureSite.singleTier.basic
             });
-
+            const continueButton = within(popupIframeDocument).queryAllByRole('button', {name: 'Continue'});
             expect(popupFrame).toBeInTheDocument();
             expect(triggerButtonFrame).toBeInTheDocument();
             expect(siteTitle).toBeInTheDocument();
@@ -197,7 +197,8 @@ describe('Signup', () => {
             // expect(fullAccessTitle).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
             // expect(submitButton).toBeInTheDocument();
-            expect(chooseBtns).toHaveLength(2);
+            expect(chooseBtns).toHaveLength(1);
+            expect(continueButton).toHaveLength(1);
 
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
             fireEvent.change(emailInput, {target: {value: 'josetomas@ejemplo.com'}});
@@ -232,7 +233,7 @@ describe('Signup', () => {
             expect(yearlyPlanTitle).toBeInTheDocument();
             // expect(fullAccessTitle).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
-            expect(chooseBtns).toHaveLength(2);
+            expect(chooseBtns).toHaveLength(1);
 
             fireEvent.change(emailInput, {target: {value: 'josetomas@ejemplo.com'}});
 
@@ -294,7 +295,7 @@ describe('Signup', () => {
         test('with default settings on monthly plan', async () => {
             const {
                 ghostApi, popupFrame, triggerButtonFrame, emailInput, nameInput, signinButton, chooseBtns,
-                siteTitle, popupIframeDocument, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle
+                siteTitle, popupIframeDocument, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle, submitButton
             } = await setup({
                 site: FixtureSite.singleTier.basic
             });
@@ -308,7 +309,7 @@ describe('Signup', () => {
             expect(monthlyPlanTitle).toBeInTheDocument();
             expect(yearlyPlanTitle).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
-            expect(chooseBtns).toHaveLength(2);
+            expect(chooseBtns).toHaveLength(1);
 
             const monthlyPlanContainer = within(popupIframeDocument).queryByText(/Monthly$/);
             const singleTierProduct = FixtureSite.singleTier.basic.products.find(p => p.type === 'paid');
@@ -322,7 +323,7 @@ describe('Signup', () => {
             await within(popupIframeDocument).findByText(benefitText);
             expect(emailInput).toHaveValue('josetomas@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
-            fireEvent.click(chooseBtns[1]);
+            fireEvent.click(submitButton);
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
                 email: 'josetomas@ejemplo.com',
                 name: 'Jamie Larsen',
@@ -335,8 +336,7 @@ describe('Signup', () => {
 
         test('with default settings on yearly plan', async () => {
             const {
-                ghostApi, popupFrame, triggerButtonFrame, emailInput, nameInput, signinButton, chooseBtns,
-                siteTitle, popupIframeDocument, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle
+                ghostApi, popupFrame, triggerButtonFrame, emailInput, nameInput, signinButton, chooseBtns, submitButton, siteTitle, popupIframeDocument, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle
             } = await setup({
                 site: FixtureSite.singleTier.basic
             });
@@ -350,7 +350,7 @@ describe('Signup', () => {
             expect(monthlyPlanTitle).toBeInTheDocument();
             expect(yearlyPlanTitle).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
-            expect(chooseBtns).toHaveLength(2);
+            expect(chooseBtns).toHaveLength(1);
 
             const yearlyPlanContainer = within(popupIframeDocument).queryByText(/Yearly$/);
             const singleTierProduct = FixtureSite.singleTier.basic.products.find(p => p.type === 'paid');
@@ -364,7 +364,7 @@ describe('Signup', () => {
             await within(popupIframeDocument).findByText(benefitText);
             expect(emailInput).toHaveValue('josetomas@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
-            fireEvent.click(chooseBtns[1]);
+            fireEvent.click(submitButton);
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
                 email: 'josetomas@ejemplo.com',
                 name: 'Jamie Larsen',
@@ -380,7 +380,7 @@ describe('Signup', () => {
         test('without name field on monthly plan', async () => {
             const {
                 ghostApi, popupFrame, triggerButtonFrame, emailInput, nameInput, signinButton, chooseBtns,
-                siteTitle, popupIframeDocument, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle
+                siteTitle, popupIframeDocument, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle, submitButton
             } = await setup({
                 site: FixtureSite.singleTier.withoutName
             });
@@ -398,7 +398,7 @@ describe('Signup', () => {
             expect(monthlyPlanTitle).toBeInTheDocument();
             expect(yearlyPlanTitle).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
-            expect(chooseBtns).toHaveLength(2);
+            expect(chooseBtns).toHaveLength(1);
 
             fireEvent.change(emailInput, {target: {value: 'josetomas@ejemplo.com'}});
 
@@ -406,7 +406,7 @@ describe('Signup', () => {
             await within(popupIframeDocument).findByText(benefitText);
 
             expect(emailInput).toHaveValue('josetomas@ejemplo.com');
-            fireEvent.click(chooseBtns[1]);
+            fireEvent.click(submitButton);
 
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({
                 email: 'josetomas@ejemplo.com',
@@ -420,11 +420,12 @@ describe('Signup', () => {
 
         test('with only paid plans available', async () => {
             let {
-                ghostApi, popupFrame, triggerButtonFrame, emailInput, nameInput, signinButton, chooseBtns,
+                ghostApi, popupFrame, popupIframeDocument, triggerButtonFrame, emailInput, nameInput, signinButton,
                 siteTitle, freePlanTitle, monthlyPlanTitle, yearlyPlanTitle
             } = await setup({
                 site: FixtureSite.singleTier.onlyPaidPlan
             });
+            const submitButton = within(popupIframeDocument).queryAllByRole('button', {name: 'Continue'});
 
             expect(popupFrame).toBeInTheDocument();
             expect(triggerButtonFrame).toBeInTheDocument();
@@ -435,7 +436,7 @@ describe('Signup', () => {
             expect(monthlyPlanTitle).toBeInTheDocument();
             expect(yearlyPlanTitle).toBeInTheDocument();
             expect(signinButton).toBeInTheDocument();
-            expect(chooseBtns).toHaveLength(1);
+            expect(submitButton).toHaveLength(1);
 
             fireEvent.change(emailInput, {target: {value: 'josetomas@ejemplo.com'}});
             fireEvent.change(nameInput, {target: {value: 'Jamie Larsen'}});
@@ -443,7 +444,7 @@ describe('Signup', () => {
             expect(emailInput).toHaveValue('josetomas@ejemplo.com');
             expect(nameInput).toHaveValue('Jamie Larsen');
 
-            fireEvent.click(chooseBtns[0]);
+            fireEvent.click(submitButton[0]);
             const singleTierProduct = FixtureSite.singleTier.basic.products.find(p => p.type === 'paid');
 
             expect(ghostApi.member.checkoutPlan).toHaveBeenLastCalledWith({

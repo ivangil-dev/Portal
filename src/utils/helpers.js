@@ -560,8 +560,8 @@ export function getFreePriceCurrency({site}) {
     const stripePrices = getAvailablePrices({site});
 
     let freePriceCurrencyDetail = {
-        currency: 'usd',
-        currency_symbol: '$'
+        currency: 'EUR',
+        currency_symbol: '€'
     };
     if (stripePrices?.length > 0) {
         freePriceCurrencyDetail.currency = stripePrices[0].currency;
@@ -658,7 +658,7 @@ export const getStripeAmount = (amount) => {
 export const getPriceString = (price = {}) => {
     const symbol = getCurrencySymbol(price.currency);
     const amount = getStripeAmount(price.amount);
-    return `${symbol}${amount}/${price.interval}`;
+    return `${amount}${symbol}/${price.interval}`;
 };
 
 export const formatNumber = (amount) => {
@@ -706,7 +706,7 @@ export function getPriceIdFromPageQuery({site, pageQuery}) {
 
 export const getOfferOffAmount = ({offer}) => {
     if (offer.type === 'fixed') {
-        return `${getCurrencySymbol(offer.currency)}${offer.amount / 100}`;
+        return `${offer.amount / 100}${getCurrencySymbol(offer.currency)}`;
     } else if (offer.type === 'percent') {
         return `${offer.amount}%`;
     }
@@ -740,7 +740,7 @@ function createMonthlyPrice({tier, priceId}) {
             id: `price-${priceId}`,
             active: true,
             type: 'recurring',
-            nickname: 'Monthly',
+            nickname: 'Mensual',
             currency: tier.currency,
             amount: tier.monthly_price,
             interval: 'month'
@@ -755,7 +755,7 @@ function createYearlyPrice({tier, priceId}) {
             id: `price-${priceId}`,
             active: true,
             type: 'recurring',
-            nickname: 'Yearly',
+            nickname: 'Anual',
             currency: tier.currency,
             amount: tier.yearly_price,
             interval: 'year'

@@ -56,9 +56,9 @@ export default class AccountProfilePage extends React.Component {
 
     renderSaveButton() {
         const isRunning = (this.context.action === 'updateProfile:running');
-        let label = 'Save';
+        let label = 'Guardar';
         if (this.context.action === 'updateProfile:failed') {
-            label = 'Retry';
+            label = 'Reintentar';
         }
         const disabled = isRunning ? true : false;
         return (
@@ -75,7 +75,7 @@ export default class AccountProfilePage extends React.Component {
 
     renderDeleteAccountButton() {
         return (
-            <div style={{cursor: 'pointer', color: 'red'}} role='button'>Delete account</div>
+            <div style={{cursor: 'pointer', color: 'red'}} role='button'>Borrar cuenta</div>
         );
     }
 
@@ -91,7 +91,7 @@ export default class AccountProfilePage extends React.Component {
         return (
             <header className='gh-portal-detail-header'>
                 <BackButton brandColor={this.context.brandColor} hidden={!this.context.lastPage} onClick={e => this.onBack(e)} />
-                <h3 className='gh-portal-main-title'>Account settings</h3>
+                <h3 className='gh-portal-main-title'>Configuración de la cuenta</h3>
             </header>
         );
     }
@@ -133,8 +133,8 @@ export default class AccountProfilePage extends React.Component {
             {
                 type: 'text',
                 value: state.name,
-                placeholder: 'Jamie Larson',
-                label: 'Name',
+                placeholder: 'Thomas Edison',
+                label: 'Nombre',
                 name: 'name',
                 required: true,
                 errorMessage: errors.name || ''
@@ -142,7 +142,7 @@ export default class AccountProfilePage extends React.Component {
             {
                 type: 'email',
                 value: state.email,
-                placeholder: 'jamie@example.com',
+                placeholder: 'thomas_edison@gmail.com',
                 label: 'Email',
                 name: 'email',
                 required: true,

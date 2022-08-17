@@ -17,7 +17,7 @@ export default class SiteTitleBackButton extends React.Component {
                             this.context.onAction('closePopup');
                         }
                     }}>
-                    <span>&larr; </span> Back
+                    <span>&larr; </span> Atrás
                 </button>
             </>
         );

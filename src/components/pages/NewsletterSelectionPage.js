@@ -19,7 +19,7 @@ function NewsletterPrefSection({newsletter, subscribedNewsletters, setSubscribed
                     <p>{newsletter.description}</p>
                 </div>
                 <div class="gh-portal-lock-icon-container">
-                    <LockIcon className='gh-portal-lock-icon' alt='' title="Unlock access to all newsletters by becoming a paid subscriber." />
+                    <LockIcon className='gh-portal-lock-icon' alt='' title="Desbloquea el acceso a todos los boletines convirtiéndote en un suscriptor de pago." />
                 </div>
             </section>
         );
@@ -76,10 +76,10 @@ export default function NewsletterSelectionPage({pageData, onBack}) {
     if (action === 'signup:running') {
         isRunning = true;
     }
-    let label = 'Continue';
+    let label = 'Continuar';
     let retry = false;
     if (action === 'signup:failed') {
-        label = 'Retry';
+        label = 'Reintentar';
         retry = true;
     }
 
@@ -88,7 +88,7 @@ export default function NewsletterSelectionPage({pageData, onBack}) {
     const [subscribedNewsletters, setSubscribedNewsletters] = useState(defaultNewsletters);
     return (
         <div className='gh-portal-content with-footer gh-portal-newsletter-selection'>
-            <p className="gh-portal-text-center gh-portal-text-large">Choose your newsletters</p>
+            <p className="gh-portal-text-center gh-portal-text-large">Elige tus boletines</p>
             <div className='gh-portal-section'>
                 <div className='gh-portal-list'>
                     <NewsletterPrefs
@@ -124,7 +124,7 @@ export default function NewsletterSelectionPage({pageData, onBack}) {
                             onClick = {() => {
                                 onBack();
                             }}>
-                            <span>Choose a different plan</span>
+                            <span>Cambiar a otra suscripción diferente</span>
                         </button>
                     </div>
                 </div>

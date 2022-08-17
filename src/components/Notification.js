@@ -34,62 +34,62 @@ const NotificationText = ({type, status, context}) => {
         const firstname = context.member.firstname || '';
         return (
             <p>
-                Welcome back{(firstname ? ', ' + firstname : '')}!<br />You've successfully signed in.
+                Hola de nuevo {(firstname ? ', ' + firstname : '')}!<br />Has iniciado sesión con éxito.
             </p>
         );
     } else if (type === 'signin' && status === 'error') {
         return (
             <p>
-                Could not sign in. Login link expired. <a href={signinPortalLink} target="_parent">Click here to retry</a>
+                No se pudo iniciar sesión. El enlace de inicio de sesión ha caducado. <a href={signinPortalLink} target="_parent">Haz click aquí para probar de nuevo</a>
             </p>
         );
     } else if (type === 'signup' && status === 'success') {
         return (
             <p>
-                You've successfully subscribed to <br /><strong>{context.site.title}</strong>
+                Te has suscrito con éxito a <br /><strong>{context.site.title}</strong>
             </p>
         );
     } else if (type === 'signup-paid' && status === 'success') {
         return (
             <p>
-                You've successfully subscribed to <br /><strong>{context.site.title}</strong>
+                Te has suscrito con éxito a <br /><strong>{context.site.title}</strong>
             </p>
         );
     } else if (type === 'updateEmail' && status === 'success') {
         return (
             <p>
-                Success! Your email is updated.
+                ¡Bien! Tu correo electrónico está actualizado.
             </p>
         );
     } else if (type === 'updateEmail' && status === 'error') {
         return (
             <p>
-                Could not update email! Invalid link.
+                ¡No se puede actualizar el correo electrónico! Enlace no válido.
             </p>
         );
     } else if (type === 'signup' && status === 'error') {
         return (
             <p>
-                Signup error: Invalid link <br /><a href={singupPortalLink} target="_parent">Click here to retry</a>
+                Error de registro: enlace no válido <br /><a href={singupPortalLink} target="_parent">Haz click aquí para probar de nuevo</a>
             </p>
         );
     } else if (type === 'signup-paid' && status === 'error') {
         return (
             <p>
-                Signup error: Invalid link <br /><a href={singupPortalLink} target="_parent">Click here to retry</a>
+                Error de registro: enlace no válido <br /><a href={singupPortalLink} target="_parent">Haz click aquí para probar de nuevo</a>
             </p>
         );
     } else if (type === 'stripe:checkout' && status === 'success') {
         if (context.member) {
             return (
                 <p>
-                    Success! Your account is fully activated, you now have access to all content.
+                    ¡Estupendo! tu cuenta está completamente activada, ahora tienes acceso a todo el contenido.
                 </p>
             );
         }
         return (
             <p>
-                Success! Check your email for magic link to sign-in.
+                ¡Perfecto! Consulta tu correo electrónico para ver el enlace de inicio de sesión sin contraseña.
             </p>
         );
     } else if (type === 'stripe:checkout' && status === 'warning') {
@@ -97,19 +97,19 @@ const NotificationText = ({type, status, context}) => {
         if (context.member) {
             return (
                 <p>
-                    Plan upgrade was cancelled.
+                    La actualización del plan está cancelada.
                 </p>
             );
         }
         return (
             <p>
-                Plan checkout was cancelled.
+                El pago del plan ha sido cancelado.
             </p>
         );
     }
     return (
         <p>
-            {status === 'success' ? 'Success' : 'Error'}
+            {status === 'success' ? 'Éxito' : 'Error'}
         </p>
     );
 };
@@ -173,7 +173,7 @@ class NotificationContent extends React.Component {
                 <div className={`gh-portal-notification${statusClass}${slideClass}`} onAnimationEnd={e => this.onAnimationEnd(e)}>
                     {(status === 'error' ? <WarningIcon className='gh-portal-notification-icon error' alt=''/> : <CheckmarkIcon className='gh-portal-notification-icon success' alt=''/>)}
                     <NotificationText type={type} status={status} context={this.context} />
-                    <CloseIcon className='gh-portal-notification-closeicon' alt='Close' onClick={e => this.onNotificationClose(e)} />
+                    <CloseIcon className='gh-portal-notification-closeicon' alt='Cerrar' onClick={e => this.onNotificationClose(e)} />
                 </div>
             </div>
         );

@@ -111,7 +111,7 @@ export function getPriceFromSubscription({subscription}) {
             price: subscription.price.amount / 100,
             name: subscription.price.nickname,
             tierId: subscription.tier?.id,
-            cadence: subscription.price?.interval === 'month' ? 'month' : 'year',
+            cadence: subscription.price?.interval === 'month' ? 'mes' : 'año',
             currency: subscription.price.currency.toLowerCase(),
             currency_symbol: getCurrencySymbol(subscription.price.currency)
         };
@@ -645,7 +645,7 @@ export const getSiteDomain = ({site}) => {
 };
 
 export const getCurrencySymbol = (currency) => {
-    return Intl.NumberFormat('en', {currency, style: 'currency'}).format(0).replace(/[\d\s.]/g, '');
+    return Intl.NumberFormat('es-ES', {currency: 'EUR', style: 'currency'}).format(0).replace(/[\d\s.]/g, '');
 };
 
 export const getStripeAmount = (amount) => {
